@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public class Titulo {
 
-	private String codigoDeBarras;
-	private Double valorPagamento;
-	private LocalDate vencimento;
+		private String codigoDeBarras;
+private Double valorPagamento;
+private LocalDate vencimento;
 	
 	
 	public Titulo(String codigoDeBarras, Double valorPagamento, LocalDate vencimento) {

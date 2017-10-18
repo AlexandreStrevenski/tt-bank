@@ -1,6 +1,7 @@
 package br.com.target.bank.service;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.junit.After;
 import org.junit.Before;
@@ -27,25 +28,36 @@ public class TituloServiceTest {
 	
 	@Test
 	public void testPagarTitulo() throws SaldoInsuficienteException, TituloVencidoException {
-		LocalDate date = LocalDate.of(2017, 11, 5);
+		LocalDate date = LocalDate.now().plusDays(5);
 		Titulo titulo = new Titulo("34191.23454 61234.590026 31234.550007 6 70000015300150", 150d, date);
 
 		tituloService.pagarTitulo(titulo, conta);
 	}
 	
 	
-	@Ignore
+	@Test
+	public void testPagarTituloNaData() throws SaldoInsuficienteException, TituloVencidoException {
+		LocalDate date = LocalDate.now();
+		Titulo titulo = new Titulo("34191.23454 61234.590026 31234.550007 6 70000015300150", 150d, date);
+
+		tituloService.pagarTitulo(titulo, conta);
+	}
+	
 	@Test(expected=TituloVencidoException.class)
 	public void pagarTituloVencido() throws SaldoInsuficienteException, TituloVencidoException {
-		//TODO: 2) Implementar a validacao de titulo vencido
+	
+		LocalDate dataVencimento = LocalDate.of(2017, 10, 5);
+		Titulo titulo = new Titulo("34191.23454 61234.590026 31234.550007 6 70000015300150", 240d, dataVencimento);
+		
+		tituloService.pagarTitulo(titulo, conta);
 	}
+	
+
 	
 	@After
 	public void tearDown() {
 		tituloService = null;
 		conta = null;
 	}
-	
-	//TODO: 1) Criar o metodo tearDown
 	
 }

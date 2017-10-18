@@ -19,6 +19,7 @@ public class CaixaEletronicoServiceTest {
 	@Before
 	public void setUp() {
 		caixaEletronico = new CaixaEletronicoService();
+		
 	}
 	
 	@Test
@@ -26,7 +27,7 @@ public class CaixaEletronicoServiceTest {
 		Cliente cliente1 = new Cliente("Alexandre", 123654789l);
 		Conta conta = new Conta(cliente1, 450d);
 		caixaEletronico.sacar(100d, conta);
-		
+
 		Double valorEsperado = 350d;
 		Assert.assertEquals(valorEsperado, conta.getSaldo());
 	}

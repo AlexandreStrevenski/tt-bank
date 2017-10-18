@@ -3,6 +3,7 @@ package br.com.target.bank.service;
 import java.time.LocalDate;
 
 import br.com.target.bank.dao.ContaDAO;
+import br.com.target.bank.dao.MinhaAnotacaoQueFazAlgo;
 import br.com.target.bank.dao.impl.ContaDAOImpl;
 import br.com.target.bank.entity.Conta;
 import br.com.target.bank.entity.Titulo;
@@ -18,6 +19,11 @@ public class TituloService {
 	}
 	
 	public void pagarTitulo(Titulo titulo, Conta conta) throws SaldoInsuficienteException, TituloVencidoException {
+		
+		if (titulo.getVencimento().isBefore(LocalDate.now())) {
+			throw new TituloVencidoException();
+		}
+		
 		if (conta.getSaldo() >= titulo.getValorPagamento()) {
 			conta.setSaldo(conta.getSaldo() - titulo.getValorPagamento());
 		}else {

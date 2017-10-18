@@ -1,14 +1,18 @@
 package br.com.target.bank.dao;
 
-import java.util.Collection;
-
 import br.com.target.bank.entity.Conta;
+import java.util.Collection;
 
 public interface ContaDAO {
 
-	public Collection<Conta> consultar(String nome);		
-	public Conta consultarContaPorId(Long idConta);
-	public Conta consultarContaPorNomeCliente(String nomeCliente);
-	public Collection<Conta> listarTodasContas();	
-	public void cadastrarConta(Conta conta);
+  Collection<Conta> consultar(String nome);
+
+  Conta consultarContaPorId(Long idConta);
+
+  Conta consultarContaPorNomeCliente(String nomeCliente);
+
+  Collection<Conta> listarTodasContas();
+
+  void cadastrarConta(Conta conta);
+
 }

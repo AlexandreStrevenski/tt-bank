@@ -17,7 +17,8 @@ public class CaixaEletronicoService {
 	}
 	
 	public void pagarTitulo(Titulo titulo, Conta conta) throws SaldoInsuficienteException, TituloVencidoException {
-		new TituloService().pagarTitulo(titulo, conta);
+	  	
+	  new TituloService().pagarTitulo(titulo, conta);
 	}
 
 }
