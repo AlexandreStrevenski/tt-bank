@@ -40,10 +40,7 @@ public class InternetBankingService {
 
     Double novoSaldoDestino = contaDestinoVerificada.getSaldo() + valorTransferencia;
     contaDestinoVerificada.setSaldo(novoSaldoDestino);
-    
-    if (valorTransferencia > contaOrigemVerificada.getSaldo()) {
-      throw new SaldoInsuficienteException(valorTransferencia);
-    }
+
   }
 
   public void pagarTitulo(Titulo titulo, Conta conta) 
