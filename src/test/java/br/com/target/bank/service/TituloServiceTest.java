@@ -1,5 +1,7 @@
 package br.com.target.bank.service;
 
+import static org.junit.Assert.fail;
+
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -51,6 +53,20 @@ public class TituloServiceTest {
 		
 		tituloService.pagarTitulo(titulo, conta);
 	}
+	
+@Test
+public void pagarTituloSemSaldo() throws SaldoInsuficienteException, TituloVencidoException {
+        
+                LocalDate dataVencimento = LocalDate.of(2017, 10, 5);
+                Titulo titulo = new Titulo("34191.23454 61234.590026 31234.550007 6 70000015300150", 7000d, dataVencimento);
+                try {
+                    tituloService.pagarTitulo(titulo, conta);
+                    fail();
+                } catch (SaldoInsuficienteException e) {
+                  // TODO: handle exception
+                }
+           
+        }
 	
 
 	

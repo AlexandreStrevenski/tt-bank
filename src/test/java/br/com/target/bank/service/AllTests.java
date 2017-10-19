@@ -5,7 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({CaixaEletronicoServiceTest.class, InternetBankingServiceTest.class, TituloServiceTest.class})
+@SuiteClasses({CaixaEletronicoServiceTest.class, 
+    InternetBankingServiceTest.class, 
+    TituloServiceTest.class})
 public class AllTests {
 
 }

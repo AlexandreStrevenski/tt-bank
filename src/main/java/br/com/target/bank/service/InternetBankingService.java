@@ -7,11 +7,7 @@ import br.com.target.bank.entity.Titulo;
 import br.com.target.bank.exceptions.SaldoInsuficienteException;
 import br.com.target.bank.exceptions.TituloVencidoException;
 
-/**
- * Classe simples de teste para o Modelo Funcionario.
- * 
- * @author Gilberto Lupatini
- */
+
 public class InternetBankingService {
 
   private ContaDAO contaDAO;
@@ -27,7 +23,7 @@ public class InternetBankingService {
    * @throws SaldoInsuficienteException pode acontecer caso nao tenha saldo na conta de origem
    */
   public void transferir(Double valorTransferencia, Conta contaOrigem, Conta contaDestino) throws SaldoInsuficienteException {
-
+    
     Conta contaOrigemVerificada = contaDAO.consultarContaPorNomeCliente(contaOrigem.getCliente().getNome());
     Conta contaDestinoVerificada = contaDAO.consultarContaPorNomeCliente(contaDestino.getCliente().getNome());
 

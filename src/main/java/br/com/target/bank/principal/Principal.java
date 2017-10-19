@@ -26,10 +26,11 @@ public class Principal {
 
     try {
       IB.transferir(150d, contaAlex, contaJoao);
+
       System.out.println("Transferencia concluida com sucesso");
       System.out.println(contaAlex.getCliente().getNome() + " com saldo de: " + contaAlex.getSaldo());
     } catch (SaldoInsuficienteException e) {
-      System.out.println("Nao foi possivel efetivar a transferencia de " + e.getValorTentativa());
+     // System.out.println("Nao foi possivel efetivar a transferencia de " + e.getValorTentativa());
     }
 
   }
